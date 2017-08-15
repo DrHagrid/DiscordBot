@@ -2,7 +2,8 @@
 
 def ex(args, message, client, cmd):
     if args[0] == 'channel_info':
-        msg = """Name: {}
+        msg = """Channel info:
+        Name: {}
         ID: {}
         Server: {}
         Topic: {}
