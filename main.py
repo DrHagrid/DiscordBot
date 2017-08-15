@@ -58,4 +58,4 @@ def on_message(message):
         yield from client.delete_message(message)
 
 print('Launch bot has started...')
-client.run('MzQ1OTI4NDQ1ODE5MzU1MTM4.DHCdTA.d7hlPrpB5W57bajpkpVQzTNURlM')  # Запуск бота по токену
+client.run(STATICS.ACCESS_TOKEN)  # Запуск бота по токену
