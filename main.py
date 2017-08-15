@@ -3,7 +3,7 @@ import asyncio as asyncio
 
 import STATICS
 import discord
-from commands import cmd_ping, cmd_random, cmd_help, cmd_weather
+from commands import cmd_ping, cmd_random, cmd_help, cmd_weather, cmd_develop
 from discord import Game, Embed
 
 client = discord.Client()
@@ -13,7 +13,8 @@ commands = {
     "помощь": cmd_help,
     "пинг": cmd_ping,
     "рандом": cmd_random,
-    "погода": cmd_weather
+    "погода": cmd_weather,
+    "dev": cmd_develop
 
 }
 
@@ -47,7 +48,8 @@ def on_message(message):
         cmd = message.content[len(STATICS.PREFIX):].split(' ')[0].lower()
         args = message.content.split(' ')[1:]
         if STATICS.PRINT_LOG:
-            print('Cmd call ||| Author: {} | Channel: {} | Cmd: {} | Args: {}'.format(message.author, message.channel, cmd, args.__str__()))
+            print('Cmd call ||| Author: {} | Channel: {} | Cmd: {} | Args: {}'.format(message.author, message.channel,
+                                                                                      cmd, args.__str__()))
         if commands.__contains__(cmd):
             yield from commands.get(cmd).ex(args, message, client, cmd)
         else:
